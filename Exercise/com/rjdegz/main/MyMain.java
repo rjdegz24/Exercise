@@ -14,13 +14,14 @@ public class MyMain {
 		System.out.println(getRecursiveSumOfDigit("2147283647", 2147283647));
 	}
 
-	public static int getRecursiveSumOfDigit(String n, int k) {
-	    int iSum = 0;
+	public static long getRecursiveSumOfDigit(String n, long k) {
+	    long iSum = 0;
+	    StringBuilder sb = new StringBuilder(n);
 	        for (int i = 0; i < k; i++) {
-	            n += n;
+	            sb.append(n);
 	        }
 	        for (int i = 0; i < n.length(); i++) {
-	            iSum += n.charAt(i) - '0';
+	            iSum += sb.toString().charAt(i) - '0';
 	        }
 	            return (iSum >= 10) ? getRecursiveSumOfDigit(String.valueOf(iSum), 1) : iSum;
 	}
